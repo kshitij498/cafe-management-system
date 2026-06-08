@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        color: #333;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+      }
+
+      .info-table th {
+        border: none;
+        background: none;
+        padding: 5px 0;
+      }
+
+      .info-table {
+        margin-bottom: 20px;
+      }
+
+      .total {
+        text-align: right;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 15px;
+      }
+
+      .footer {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 12px;
+        color: gray;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Cafe Management System</h2>
+
+    <table class="info-table">
+      <tr>
+        <th>Name: <%= name %></th>
+        <th>Email: <%= email %></th>
+      </tr>
+      <tr>
+        <th>Payment Method: <%= paymentMethod %></th>
+        <th>Contact No.: <%= contactNo %></th>
+      </tr>
+    </table>
+
+    <h3>Product Details</h3>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Sub Total</th>
+      </tr>
+
+      <% if (productdetails.length > 0) { %>
+        <% productdetails.forEach((product) => { %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.category %></td>
+            <td><%= product.quantity %></td>
+            <td><%= product.price %></td>
+            <td><%= product.total %></td>
+          </tr>
+        <% }) %>
+      <% } else { %>
+        <tr>
+          <td colspan="5" style="text-align: center;">No products found</td>
+        </tr>
+      <% } %>
+    </table>
+
+    <div class="total">
+      Total: ₹ <%= totalamount %>
+    </div>
+
+    <div class="footer">
+      Thank you for visiting...
+    </div>
+  </body>
+</html>
