@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { Product } from "../entities/productEntity";
 import AppDataSource from "../config/db";
 
+
 export const createProduct = async (
     req: Request,
     res: Response
